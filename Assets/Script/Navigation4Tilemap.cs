@@ -251,31 +251,36 @@ namespace Navigation4Tilemap
                    
 					if (offSet.y > 0) {
                         style = 1;
-                        perstyle = 1;
 						walkDirec = WalkDirection.up;
-                        player.transform.Rotate(0, 0,0);
+                        if (style != perstyle)
+                        {
+                            perstyle = 1;
+                            player.transform.Rotate(0, 0, 0);
+                        }
 
                     } else if (offSet.y < 0) {
                         style = 4;
-                        perstyle = 4;
+                        walkDirec = WalkDirection.down;
                         if (style != perstyle)
                         {
-                            player.transform.Rotate(0, 0, 90);
+                            perstyle = 4;
+                            player.transform.Rotate(0, 0, -180);
                         }
-                        walkDirec = WalkDirection.down;
+                
 					} else if (offSet.x < 0) {
                         style = 2;
-                        perstyle = 2;
+                     
                         if (style != perstyle)
                         {
+                            perstyle = 2;
                             player.transform.Rotate(0, 0,90);
                         }
                         walkDirec = WalkDirection.left;
 					} else if (offSet.x > 0) {
                         style = 3;
-                        perstyle = 3;
                         if(style!=perstyle)
                         {
+                            perstyle = 3;
                             player.transform.Rotate(0, 0, -90);
                         }
                         walkDirec = WalkDirection.right;
