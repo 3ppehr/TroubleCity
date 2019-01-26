@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    public static bool Started=true;
     public GameObject building;
     public static bool PoliceStartTimer=false;
     public GameObject car;
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour {
             time = Time.deltaTime + Police.WorkTime;
             if (Police.WorkTime >= 15)
             {
-                
+                car.transform.position = new Vector2(7.01f, -3.27f);
                 car.SetActive(true);
                 PoliceStartTimer = false;
                 PoliceAvailable = true;
