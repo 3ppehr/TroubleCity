@@ -255,7 +255,7 @@ namespace Navigation4Tilemap
                         if (style != perstyle)
                         {
                             perstyle = 1;
-                            player.transform.Rotate(0, 0, 0);
+                            player.transform.rotation = Quaternion.Euler(0, 0, 0);
                         }
 
                     } else if (offSet.y < 0) {
@@ -264,7 +264,7 @@ namespace Navigation4Tilemap
                         if (style != perstyle)
                         {
                             perstyle = 4;
-                            player.transform.Rotate(0, 0, -180);
+                            player.transform.rotation = Quaternion.Euler(0, 0, 180);
                         }
                 
 					} else if (offSet.x < 0) {
@@ -273,7 +273,7 @@ namespace Navigation4Tilemap
                         if (style != perstyle)
                         {
                             perstyle = 2;
-                            player.transform.Rotate(0, 0,90);
+                            player.transform.rotation = Quaternion.Euler(0, 0, 90);
                         }
                         walkDirec = WalkDirection.left;
 					} else if (offSet.x > 0) {
@@ -281,7 +281,7 @@ namespace Navigation4Tilemap
                         if(style!=perstyle)
                         {
                             perstyle = 3;
-                            player.transform.Rotate(0, 0, -90);
+                            player.transform.rotation = Quaternion.Euler(0, 0, -90);
                         }
                         walkDirec = WalkDirection.right;
 					} else {
