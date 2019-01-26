@@ -8,18 +8,22 @@ public class City : MonoBehaviour {
     //Arrays
     public GameObject[] FixedCity;
     public GameObject[] FireCity;
-    public GameObject[] DisasterCity;
-    public GameObject[] RoadCity;
+   // public GameObject[] DisasterCity;
+  //  public GameObject[] RoadCity;
     //indexes
     private int x;
     private int y;
     //Times
-    float timegeter;
-    float CityTime;
-    float Rtime;
+    public float timegeter;
+    public float CityTime;
+    public float Rtime ;
     #endregion
     #region RandomDisasterStarter
     //Code Starts
+    void start()
+    {
+        Rtime = Random.Range(5f, 15f);
+    }
     void Update()
     {
 
@@ -27,16 +31,20 @@ public class City : MonoBehaviour {
         {
             timegeter = Time.deltaTime + timegeter;
             CityTime = Time.deltaTime + CityTime;
-            if (timegeter >= 5f)
+            if (timegeter >= Rtime)
+            {
+                
                 RandomTime();
+                timegeter = 0;
+            }   
             if (CityTime >= Rtime)
             {
-                if (y == 1)
+                CityTime = 0;
                     randomfire();
-                else if (y == 2)
-                    randomroad();
-                else if (y == 3)
-                    randomdisaster();
+                //else if (y == 2)
+                //    randomroad();
+                //else if (y == 3)
+                //    randomdisaster();
             }
         }
       
@@ -48,27 +56,27 @@ public class City : MonoBehaviour {
     //Functions
     public void randomfire()
     {
-        x = Random.Range(0, 10);
+        x = Random.Range(0, 2);
         FixedCity[x].SetActive(false);
-        DisasterCity[x].SetActive(true);
+        FireCity[x].SetActive(true);
     }
     public void RandomTime()
     {
-        y = Random.Range(0, 3);
+        y = 1;
         Rtime = Random.Range(5f, 15f);
     }
-    public void randomroad()
-    {
-        x = Random.Range(0, 10);
-        FixedCity[x].SetActive(false);
-        RoadCity[x].SetActive(true);
-    }
-    public void randomdisaster()
-    {
-        x = Random.Range(0, 10);
-        FixedCity[x].SetActive(false);
-        DisasterCity[x].SetActive(true);
-    }
+    //public void randomroad()
+    //{
+    //    x = Random.Range(0, 10);
+    //    FixedCity[x].SetActive(false);
+    //    RoadCity[x].SetActive(true);
+    //}
+    //public void randomdisaster()
+    //{
+    //    x = Random.Range(0, 10);
+    //    FixedCity[x].SetActive(false);
+    //    DisasterCity[x].SetActive(true);
+    //}
     #endregion
 }
 #endregion
