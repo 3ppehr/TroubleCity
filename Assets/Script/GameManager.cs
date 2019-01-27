@@ -12,8 +12,11 @@ public class GameManager : MonoBehaviour {
     public static bool tecnic = true;
     public static bool ambulance = true;
     public float time;
+    public static int Score;
     // Use this for initialization
     void Start () {
+
+        Score = 100;
 		
 	}
 	
@@ -34,4 +37,11 @@ public class GameManager : MonoBehaviour {
         }
         
 	}
+
+
+    public void _Score()
+    {
+        Score--;
+
+    }
 }

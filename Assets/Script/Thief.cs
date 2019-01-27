@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Thief : MonoBehaviour {
     public GameObject TheCar;
+    public GameObject crashbuilding;
+    
+   public float time;
+    
     // Use this for initialization
     void Start() {
 
@@ -12,6 +16,18 @@ public class Thief : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+        if(crashbuilding.active==true)
+        {
+            time = Time.deltaTime+time;
+            if (time >= 15f)
+            {
+                time = 0;
+                GameManager.Score--;
+                crashbuilding.SetActive(false);
+
+
+            }
+        }
 
     }
     void OnColisionEnter2D(Collision2D col)
