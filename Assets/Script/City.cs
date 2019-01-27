@@ -57,7 +57,6 @@ public class City : MonoBehaviour {
     public void randomfire()
     {
         x = Random.Range(0, 2);
-        FixedCity[x].SetActive(false);
         FireCity[x].SetActive(true);
     }
     public void RandomTime()
